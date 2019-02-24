@@ -13,6 +13,14 @@ Begin VB.Form frmInput
    ScaleWidth      =   4560
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  '所有者中心
+   Begin VB.CommandButton cmdMore 
+      Caption         =   "编辑"
+      Height          =   495
+      Left            =   3840
+      TabIndex        =   7
+      Top             =   120
+      Width           =   615
+   End
    Begin VB.CommandButton cmdOk 
       Caption         =   "&OK"
       Height          =   495
@@ -43,10 +51,11 @@ Begin VB.Form frmInput
       Height          =   270
       Index           =   0
       Left            =   120
+      MultiLine       =   -1  'True
       TabIndex        =   1
-      Text            =   "txt"
+      Text            =   "frmInput.frx":0000
       Top             =   360
-      Width           =   4335
+      Width           =   3735
    End
    Begin VB.Label lab 
       Caption         =   "lab"
@@ -83,7 +92,14 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Dim cOk As Boolean
+
+Private Sub cmdMore_Click()
+    cmdMore.Caption = "咕"
+End Sub
+
 Private Sub cmdOk_Click()
+    cOk = True
     Unload Me
 End Sub
 
@@ -103,14 +119,16 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
-    BBCode BBInputC, txt(0).Text, txt(1).Text, txt(2).Text, BBInputMode
-    BBInputC = ""
-    BBInputMode = False
-    Dim i As Integer
-    For i = 0 To 2
-        BBInputV(i) = ""
-        BBInputL(i) = ""
-    Next i
+    If cOk = True Then
+        BBCode BBInputC, txt(0).Text, txt(1).Text, txt(2).Text, BBInputMode
+        BBInputC = ""
+        BBInputMode = False
+        Dim i As Integer
+        For i = 0 To 2
+            BBInputV(i) = ""
+            BBInputL(i) = ""
+        Next i
+    End If
     If TopMode = True Then TopMode = False: frm.chkTop.Value = 1
     frm.chkTop.Enabled = True
 End Sub
