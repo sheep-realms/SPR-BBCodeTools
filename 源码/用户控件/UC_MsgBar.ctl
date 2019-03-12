@@ -17,7 +17,7 @@ Begin VB.UserControl UC_MsgBar
       BackStyle       =   0  'Transparent
       Caption         =   "Text"
       BeginProperty Font 
-         Name            =   "΢���ź�"
+         Name            =   "Î¢ÈíÑÅºÚ"
          Size            =   9
          Charset         =   134
          Weight          =   400
@@ -35,7 +35,7 @@ Begin VB.UserControl UC_MsgBar
       BackStyle       =   0  'Transparent
       Caption         =   "Title"
       BeginProperty Font 
-         Name            =   "΢���ź�"
+         Name            =   "Î¢ÈíÑÅºÚ"
          Size            =   10.5
          Charset         =   134
          Weight          =   700
